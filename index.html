@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vliegende woorden</title>
+  <link rel="stylesheet" href="woord.css">
+</head>
+<body>
+  <section>
+    <p class="text">
+      Synth pug vice, mumblecore biodiesel copper mug migas ramps chambray literally messenger bag. Keytar retro yes plz food truck stumptown. Mustache kitsch iPhone, lomo kale chips gochujang praxis squid put a bird on it enamel pin salvia. Banjo skateboard aesthetic vaporware la croix tattooed small batch jianbing edison bulb biodiesel activated charcoal pork belly. Jean shorts kogi neutra vexillologist raclette trust fund small batch synth typewriter subway tile kale chips vaporware.shaman, etsy shabby chic twee lo-fi four dollar toast. Fixie prism keytar skateboard PBR&B meh farm-to-table raclette, hell of etsy lomo hoodie aesthetic austin irony. Tattooed meditation raclette letterpress distillery enamel pin. Flannel wolf chia, kitsch ramps authentic chartreuse offal migas hashtag iceland. Adaptogen messenger bag retro 3 wolf moon drinking vinegar +1 vexillologist beard kinfolk offal portland chicharrones waistcoat organic. Fingerstache hammock cliche fashion axe
+    </p>
+  </section>
+  <script src="anime.min.js"></script>
+  <script>
+    const text = document.querySelector('.text');
+    text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+
+    const animation = anime.timeline({
+      targets : '.text span',
+      easing : 'easeInOutExpo',
+      loop : true,
+
+    });
+      animation
+        .add({
+          rotate : function () {
+            return anime.random(-360,360)
+          },
+          translateX : function () {
+            return anime.random(-500,500)
+          },
+          translateY : function () {
+            return anime.random(-500,500)
+          },
+          duration : 5000,
+          delay : anime.stagger(20),
+        })
+        .add({
+          rotate : 0,
+          translateX : 0,
+          translateY : 0,
+          duration : 5000,
+          delay : anime.stagger(20),
+        })
+  </script>
+</body>
+</html>
